@@ -1,0 +1,29 @@
+From: Felix Fietkau <nbd@nbd.name>
+Date: Tue, 5 Jan 2021 11:13:28 +0100
+Subject: [PATCH] Revert "mtd: spinand: Fix OOB read"
+
+This reverts stable commit baad618d078c857f99cc286ea249e9629159901f.
+
+This commit is adding lines to spinand_write_to_cache_op, wheras the upstream
+commit 868cbe2a6dcee451bd8f87cbbb2a73cf463b57e5 that this was supposed to
+backport was touching spinand_read_from_cache_op.
+It causes a crash on writing OOB data by attempting to write to read-only
+kernel memory.
+
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>
+Signed-off-by: Felix Fietkau <nbd@nbd.name>
+---
+
+--- a/drivers/mtd/nand/spi/core.c
++++ b/drivers/mtd/nand/spi/core.c
+@@ -319,10 +319,6 @@ static int spinand_write_to_cache_op(str
+ 		buf += ret;
+ 	}
+ 
+-	if (req->ooblen)
+-		memcpy(req->oobbuf.in, spinand->oobbuf + req->ooboffs,
+-		       req->ooblen);
+-
+ 	return 0;
+ }
+ 
