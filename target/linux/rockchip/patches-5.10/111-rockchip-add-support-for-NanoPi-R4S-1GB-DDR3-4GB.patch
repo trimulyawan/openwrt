@@ -14,7 +14,7 @@ Signed-off-by: Marty Jones <mj8263788@gmail.com>
 
 --- a/arch/arm64/boot/dts/rockchip/Makefile
 +++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -30,6 +30,8 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-leez-p710.dtb
+@@ -30,6 +30,8 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-le
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-nanopc-t4.dtb
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-nanopi-m4.dtb
  dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3399-nanopi-neo4.dtb
@@ -168,4 +168,3 @@ Signed-off-by: Marty Jones <mj8263788@gmail.com>
 +&vcc3v3_sys {
 +	vin-supply = <&vcc5v0_sys>;
 +};
-
