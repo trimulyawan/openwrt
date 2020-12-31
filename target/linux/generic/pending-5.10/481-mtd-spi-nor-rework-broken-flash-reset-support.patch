@@ -130,7 +130,7 @@ Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
  	spi_nor_unlock_and_unprep(nor);
  	return ret;
  }
-@@ -2972,9 +3010,13 @@ static int spi_nor_init(struct spi_nor *
+@@ -2975,9 +3013,13 @@ static int spi_nor_init(struct spi_nor *
  		 * reboots (e.g., crashes). Warn the user (or hopefully, system
  		 * designer) that this is bad.
  		 */
@@ -159,7 +159,7 @@ Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
  int spi_nor_set_4byte_addr_mode(struct spi_nor *nor, bool enable);
 --- a/drivers/mtd/spi-nor/sst.c
 +++ b/drivers/mtd/spi-nor/sst.c
-@@ -54,6 +54,10 @@ static int sst_write(struct mtd_info *mt
+@@ -55,6 +55,10 @@ static int sst_write(struct mtd_info *mt
  	if (ret)
  		return ret;
  
@@ -170,7 +170,7 @@ Signed-off-by: Chuanhong Guo <gch981213@gmail.com>
  	ret = spi_nor_write_enable(nor);
  	if (ret)
  		goto out;
-@@ -123,6 +127,7 @@ static int sst_write(struct mtd_info *mt
+@@ -124,6 +128,7 @@ static int sst_write(struct mtd_info *mt
  	}
  out:
  	*retlen += actual;
