@@ -1,0 +1,25 @@
+From 6772a6ef3430dd666435cfd5ae7c4967804d7470 Mon Sep 17 00:00:00 2001
+From: Marty Jones <mj8263788@gmail.com>
+Date: Sat, 9 Jan 2021 16:18:01 -0500
+Subject: [PATCH] rockchip: enable USB3 port on Pine64 Rock64
+
+Signed-off-by: Marty Jones <mj8263788@gmail.com>
+---
+ arch/arm64/boot/dts/rockchip/rk3328-rock64.dts | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+--- a/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3328-rock64.dts
+@@ -398,3 +398,12 @@
+ &vop_mmu {
+ 	status = "okay";
+ };
++
++&usbdrd3 {
++	status = "okay";
++};
++
++&usbdrd_dwc3 {
++	dr_mode = "host";
++	status = "okay";
++};
